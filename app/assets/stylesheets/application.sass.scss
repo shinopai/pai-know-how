@@ -1,0 +1,39 @@
+// Entry point for your Sass build
+
+@import "_basic";
+@import "_mixin";
+
+/* header */
+.header {
+  background-color: $color-blue;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  &__inner {
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+  &__logo {
+    width: 150px;
+  }
+  &-btns {
+    @include fs-14;
+    align-items: center;
+    column-gap: 15px;
+    &__btn {
+      @include set-border(1px, solid, #97b5d1);
+      color: #74a5cc;
+      width: fit-content;
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 0.5em 1em;
+    }
+  }
+}
+
+/* main */
+.main {
+  background-color: $color-blue;
+  margin-top: 87.07px;
+}

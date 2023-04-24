@@ -1,0 +1,53 @@
+/* mixin */
+/* media query */
+@mixin mq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+/* centering */
+@mixin centering() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* set border */
+@mixin set-border($width, $style, $color) {
+  border: $width $style $color;
+}
+
+/* set top position of pseudo element */
+@mixin set-top-pos($height) {
+  top: calc(50% - #{$height} / 2);
+}
+
+/* set pseudo element(no image) */
+@mixin set-pseudo-no-img($width, $height) {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: $width;
+  height: $height;
+  @include set-top-pos($height);
+  @content;
+}
+
+/* set pseudo element */
+@mixin set-pseudo($image, $width, $height) {
+  content: "";
+  background: url($image) no-repeat;
+  background-size: contain;
+  display: inline-block;
+  position: absolute;
+  width: $width;
+  height: $height;
+  @include set-top-pos($height);
+  @content;
+}
+
+/* font size */
+@mixin fs-14 {
+  font-size: #{"clamp(1.2rem, 1.16rem + 0.2vw, 1.4rem)"};
+}
