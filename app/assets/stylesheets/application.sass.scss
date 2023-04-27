@@ -37,3 +37,52 @@
   background-color: $color-blue;
   margin-top: 87.07px;
 }
+
+/* top page */
+.top {
+  padding: 50px 0;
+  &__box {
+    justify-content: space-evenly;
+    &.reverse {
+      margin-top: 50px;
+      flex-direction: row-reverse;
+    }
+  }
+  &-content {
+    width: 45%;
+    flex-direction: column;
+    row-gap: 45px;
+    justify-content: center;
+    &__heading {
+      @include fs-32;
+      letter-spacing: 0.1em;
+      color: #173055;
+    }
+    &__txt {
+      @include fs-16;
+      color: #173055;
+    }
+    &__btn {
+      @include fs-14;
+      @include set-border(1px, solid, #97b5d1);
+      color: #74a5cc;
+      position: relative;
+      width: fit-content;
+      border-radius: 100vh;
+      padding: 0.5em 2em 0.5em 3em;
+      &::before {
+        @include set-pseudo("ico_unlock.webp", 15px, 17px);
+        left: 1em;
+      }
+      &.use {
+        &::before {
+          @include set-pseudo("ico_user.webp", 15px, 17px);
+          left: 1em;
+        }
+      }
+    }
+  }
+  &__img {
+    width: #{"min(50%, 550px)"};
+  }
+}

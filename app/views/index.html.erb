@@ -4,7 +4,7 @@
     <div class="header__inner flex">
       <%= link_to root_path, class: 'contents' do %>
       <h1 class="header__logo">
-        <%= image_tag 'logo_top.png' %>
+        <%= image_tag 'logo_site.webp' %>
       </h1>
       <% end %>
       <div class="header-btns flex">
@@ -18,5 +18,28 @@
 
 <!-- main -->
 <main class="main">
-  main
+  <div class="top">
+    <div class="wrap">
+      <div class="top__box flex">
+        <div class="top-content flex">
+          <h2 class="top-content__heading">情報共有が<br>組織を強くする</h2>
+          <p class="top-content__txt">ビジネスをリモートで機能させるには<br>情報共有が大切である。KnowHowは<br>属人的だったノウハウを情報資産として<br>共有するサービスです。</p>
+          <%= link_to 'アカウント登録せずに機能を試す', '#', class: 'top-content__btn' %>
+        </div>
+        <figure class="top__img">
+          <%= image_tag 'img_top01.png' %>
+        </figure>
+      </div>
+      <div class="top__box flex reverse">
+        <div class="top-content flex">
+          <h2 class="top-content__heading">情報資産共有ツール<br>KnowHowとは</h2>
+          <p class="top-content__txt">「情報資産の共有」を目的としたサービスです。<br>社内SNSとしても利用できます。</p>
+          <%= link_to 'KnowHowを利用したい', '#', class: 'top-content__btn use' %>
+        </div>
+        <figure class="top__img">
+          <%= image_tag 'img_top02.png' %>
+        </figure>
+      </div>
+    </div>
+  </div>
 </main>
