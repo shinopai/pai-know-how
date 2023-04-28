@@ -48,6 +48,9 @@
 }
 
 /* font size */
+@mixin fs-12 {
+  font-size: #{"clamp(1rem, 0.96rem + 0.2vw, 1.2rem)"};
+}
 @mixin fs-14 {
   font-size: #{"clamp(1.2rem, 1.16rem + 0.2vw, 1.4rem)"};
 }

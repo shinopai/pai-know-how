@@ -8,7 +8,7 @@
       </h1>
       <% end %>
       <div class="header-btns flex">
-        <%= link_to '新規登録', '#', class: 'header-btns__btn' %>
+        <%= link_to '新規登録', new_user_registration_path, class: 'header-btns__btn' %>
         <%= link_to 'ログイン', '#', class: 'header-btns__btn' %>
         <%= link_to 'ゲストログイン', '#', class: 'header-btns__btn' %>
       </div>
@@ -34,12 +34,38 @@
         <div class="top-content flex">
           <h2 class="top-content__heading">情報資産共有ツール<br>KnowHowとは</h2>
           <p class="top-content__txt">「情報資産の共有」を目的としたサービスです。<br>社内SNSとしても利用できます。</p>
-          <%= link_to 'KnowHowを利用したい', '#', class: 'top-content__btn use' %>
+          <%= link_to 'KnowHowを利用したい', new_user_registration_path, class: 'top-content__btn use' %>
         </div>
         <figure class="top__img">
           <%= image_tag 'img_top02.png' %>
         </figure>
       </div>
+      <div class="top__card-bundle flex">
+        <figure class="top-card">
+          <div class="top-card__img-wrap">
+            <%= image_tag 'img_top03.png', class: 'top-card__img' %>
+          </div>
+          <figure class="top-card__heading">ノウハウをアウトプットする</figure>
+          <p class="top-card__txt">誰でも簡単にアウトプットできます。下書きとして一時保存することもできます。</p>
+        </figure>
+        <figure class="top-card">
+          <div class="top-card__img-wrap">
+            <%= image_tag 'img_top04.png', class: 'top-card__img' %>
+          </div>
+          <figure class="top-card__heading">ノウハウを検索する</figure>
+          <p class="top-card__txt">自分が求めるノウハウを検索することができます。ブックマークをして他の人のノウハウを自分のものにできます。</p>
+        </figure>
+        <figure class="top-card">
+          <div class="top-card__img-wrap">
+            <%= image_tag 'img_top05.png', class: 'top-card__img' %>
+          </div>
+          <figure class="top-card__heading">気になる人をフォローする</figure>
+          <p class="top-card__txt">気になる人をフォローすることができます。フォローした人のノウハウはタイムラインに表示されます。</p>
+        </figure>
+      </div>
     </div>
   </div>
 </main>
+
+<!-- footer -->
+<%= render 'shared/footer' %>
