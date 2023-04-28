@@ -1,26 +1,41 @@
-<h2>Log in</h2>
+<!-- header -->
+<%= render 'devise/shared/header'%>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<!-- main -->
+<main class="main">
+  <div class="wrap">
+    <div class="auth-form__wrap">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'auth-form' }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div class="auth-form__item">
+        <%= f.label :email, 'メールアドレス', class: 'auth-form__label' %><br />
+        <%= f.email_field :email, autocomplete: "email", class: 'auth-form__text' %>
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="auth-form__item">
+        <%= f.label :password, 'パスワード', class: 'auth-form__label' %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'auth-form__text' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+      <div class="auth-form__item">
+        <%= f.check_box :remember_me, class: 'auth-form__check' %>
+        <%= f.label :remember_me, class: 'auth-form__label' %>
+      </div>
+      <% end %>
+
+      <div class="auth-form__item">
+        <%= f.submit "ログイン", class: 'auth-form__submit' %>
+      </div>
+      <%= render "devise/shared/links" %>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</main>
 
-<%= render "devise/shared/links" %>
+<!-- footer -->
+<%= render 'shared/footer' %>

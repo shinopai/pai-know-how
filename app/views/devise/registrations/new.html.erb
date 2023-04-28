@@ -29,9 +29,11 @@
       <div class="auth-form__item">
         <%= f.submit "登録", class: 'auth-form__submit' %>
       </div>
+      <%= render "devise/shared/links" %>
       <% end %>
     </div>
-
-    <%= render "devise/shared/links" %>
   </div>
 </main>
+
+<!-- footer -->
+<%= render 'shared/footer' %>
