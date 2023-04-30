@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  # ユーザープロフィール画面(利用登録orログイン後遷移ページ)
+  get '/user_profile/:id', to: 'user_profiles/index#index', as: 'user_profiles'
 end

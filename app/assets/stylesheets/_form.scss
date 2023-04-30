@@ -1,0 +1,50 @@
+// form
+
+/* auth form */
+.auth-form {
+  background-color: #fff;
+  padding: 35px 20px;
+  &__wrap {
+    max-width: 550px;
+    padding: 100px 0 50px;
+    margin: 0 auto;
+  }
+  &__item {
+    width: 100%;
+    margin-bottom: 15px;
+    em {
+      color: $color-deep-blue;
+      font-weight: bold;
+    }
+    &:last-of-type {
+      margin-top: 50px;
+    }
+  }
+  &__label {
+    @include fs-12;
+    color: $color-deep-blue;
+    font-weight: bold;
+  }
+  &__text {
+    @include fs-14;
+    width: 100%;
+    padding: 0.3em 1em;
+  }
+  &__submit {
+    @include fs-14;
+    background-color: $color-deep-blue;
+    color: #fff;
+    border: none;
+    width: 250px;
+    padding: 0.5em 0;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__check {
+    vertical-align: bottom;
+  }
+}

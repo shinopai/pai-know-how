@@ -24,4 +24,9 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  # The path used after login.
+  def after_login_path_for(resource)
+    user_profiles_path(current_user)
+  end
 end

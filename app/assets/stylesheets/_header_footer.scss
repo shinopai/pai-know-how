@@ -1,0 +1,92 @@
+// header & footer
+
+/* header */
+.header {
+  background-color: $color-blue;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  &__inner {
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+  &__logo {
+    width: 150px;
+  }
+  &-btns {
+    @include fs-14;
+    align-items: center;
+    column-gap: 15px;
+    &__btn {
+      @include set-border(1px, solid, #97b5d1);
+      color: #74a5cc;
+      width: fit-content;
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 0.5em 1em;
+    }
+  }
+}
+
+/* auth header */
+.auth-header {
+  background-color: $color-blue;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  &__logo {
+    width: 180px;
+    margin: 0 auto;
+  }
+}
+
+/* user header */
+.user-header {
+  background-color: $color-blue;
+  border-bottom: 2px solid #dcdfe6;
+  padding: 10px 0;
+  &__inner {
+    justify-content: space-between;
+  }
+  &__item {
+    column-gap: 40px;
+  }
+  &__link {
+    @include fs-14;
+    position: relative;
+    padding-left: 1.5em;
+    &.home {
+      &::before {
+        @include set-pseudo("ico_home.webp", 15px, 17px);
+        left: 0;
+      }
+    }
+    &.user {
+      &::before {
+        @include set-pseudo("ico_user_black.webp", 15px, 17px);
+        left: 0;
+      }
+    }
+    &.output {
+      &::before {
+        @include set-pseudo("ico_output.webp", 15px, 17px);
+        left: 0;
+      }
+    }
+  }
+}
+
+/* footer */
+.footer {
+  background-color: $color-blue;
+  padding: 15px 0;
+  text-align: center;
+  &__copy {
+    @include fs-12;
+    color: rgba(119, 119, 119, 0.6);
+  }
+}
