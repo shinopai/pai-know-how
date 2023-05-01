@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_28_232854) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_30_010939) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -28,6 +28,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_232854) do
     t.index ["user_id"], name: "index_knowhows_on_user_id"
   end
 
+  create_table "user_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", default: "ユーザー"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
+    t.string "image", default: "img_user.webp"
+    t.integer "sex", default: 0
+    t.string "tel"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -42,4 +56,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_232854) do
 
   add_foreign_key "knowhows", "categories"
   add_foreign_key "knowhows", "users"
+  add_foreign_key "user_profiles", "users"
 end

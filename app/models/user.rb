@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   # relation
   has_many :knowhows
+  has_one :user_profile
 end
