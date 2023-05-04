@@ -30,12 +30,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_30_010939) do
 
   create_table "user_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "ユーザー"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
-    t.string "image", default: "img_user.webp"
+    t.integer "birth_year", default: 0
+    t.integer "birth_month", default: 0
+    t.integer "birth_day", default: 0
+    t.string "profile_image", default: "img_user.webp"
     t.integer "sex", default: 0
-    t.string "tel"
+    t.string "tel", default: "0000000000"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

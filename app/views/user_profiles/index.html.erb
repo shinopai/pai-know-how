@@ -2,18 +2,27 @@
 <%= render 'user_profiles/shared/header' %>
 
 <!-- main -->
-<main class="main">
+<main class="user-main">
   <div class="wrap">
     <div class="user-profile__wrap flex">
       <div class="user-profile-card">
         <div class="user-profile-card__top">
           <span>
-            <%= @user.user_profile %>
+            <%= @user.user_profile.name %>
           </span>
         </div>
-        <figure class="user-profile__img">
-
+        <figure class="user-profile-card__img">
+          <% if @user.user_profile.profile_image? %>
+          <%= image_tag @user.user_profile.profile_image.url %>
+          <% else %>
+          <%= image_tag 'img_user.webp' %>
+          <% end %>
         </figure>
+        <ul class="user-profile-card__list">
+          <li>
+
+          </li>
+        </ul>
       </div>
     </div>
   </div>

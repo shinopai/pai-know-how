@@ -84,3 +84,6 @@ gem 'rails-i18n'
 
 # 画像アップロード
 gem 'carrierwave'
+
+# デバック
+gem 'pry-rails'

@@ -11,7 +11,12 @@ class UserProfile < ApplicationRecord
     validates :birth_year
     validates :birth_month
     validates :birth_day
-    validates :sex
   end
   validates :tel, format: { with: VALID_TEL_REGEX }
+
+  # carrierwave
+   mount_uploader :profile_image, ProfileImageUploader
+
+   # enum
+   enum sex: { 男性: 0, 女性: 1 }
 end
