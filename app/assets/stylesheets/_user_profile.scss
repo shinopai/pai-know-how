@@ -1,0 +1,93 @@
+// user profile
+
+.user-profile {
+  &__wrap {
+    justify-content: space-between;
+  }
+  &-card {
+    @include set-border(1px, solid, #e3e4e6);
+    width: 20%;
+    border-radius: 5px;
+    background-color: #fafbfd;
+    &__top {
+      @include fs-14;
+      background-color: #e3e3e3;
+      border-radius: 5px 5px 0 0;
+      text-align: center;
+      padding: 0.3em 0;
+      span {
+        position: relative;
+        padding-left: 0.3em;
+        &::before {
+          @include set-pseudo("ico_user_black.webp", 13px, 15px);
+          left: -1em;
+        }
+      }
+    }
+    &__list {
+      @include fs-12;
+      padding: 15px 0;
+      li {
+        position: relative;
+        padding-left: 2.5em;
+        &.birth {
+          &::before {
+            @include set-pseudo("ico_cake.webp", 15px, 13px);
+            left: 0.5em;
+          }
+        }
+        &.sex {
+          &::before {
+            @include set-pseudo("ico_gender.webp", 18px, 18px);
+            left: 0.2em;
+          }
+        }
+        &.tel {
+          &::before {
+            @include set-pseudo("ico_tel.webp", 13px, 15px);
+            left: 0.5em;
+          }
+        }
+        &.email {
+          &::before {
+            @include set-pseudo("ico_email.webp", 15px, 13px);
+            left: 0.5em;
+          }
+        }
+      }
+    }
+    &__bottom {
+      @include fs-14;
+      background-color: #d9dadc;
+      text-align: center;
+      padding: 0.3em 0;
+      border-radius: 0 0 5px 5px;
+      span {
+        position: relative;
+        padding-right: 1.5em;
+        &::after {
+          @include set-pseudo("ico_arrow.webp", 20px, 18px);
+          right: 0;
+        }
+      }
+    }
+  }
+  &-knowhows {
+    @include set-border(1px, solid, #e3e4e6);
+    border-radius: 5px;
+    width: 75%;
+    background-color: #fafbfd;
+    &__heading {
+      @include fs-16;
+      background-color: #e3e3e3;
+      text-align: center;
+      padding: 0.3em 0;
+      border-radius: 5px 5px 0 0;
+    }
+    &__txt {
+      @include fs-14;
+      margin-top: 15px;
+      padding-left: 1em;
+    }
+  }
+}

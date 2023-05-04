@@ -10,6 +10,12 @@ class UserProfiles::IndexController < ApplicationController
       user_profile.save!
     end
 
+    # 関連するプロフィールを取得
+    @user_profile = @user.user_profile
+
+    # 関連するノウハウを取得
+    @user_knowhows = @user.knowhows
+
     render template: 'user_profiles/index'
   end
 end

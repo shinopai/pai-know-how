@@ -8,22 +8,56 @@
       <div class="user-profile-card">
         <div class="user-profile-card__top">
           <span>
-            <%= @user.user_profile.name %>
+            <%= @user_profile.name %>
           </span>
         </div>
         <figure class="user-profile-card__img">
-          <% if @user.user_profile.profile_image? %>
-          <%= image_tag @user.user_profile.profile_image.url %>
+          <% if @user_profile.profile_image? %>
+          <%= image_tag @user_profile.profile_image.url %>
           <% else %>
           <%= image_tag 'img_user.webp' %>
           <% end %>
         </figure>
         <ul class="user-profile-card__list">
-          <li>
-
+          <li class="birth">
+            <% if @user_profile.birth_year == 0 %>
+            未登録
+            <% else %>
+            <%= @user_profile.birth_year %>-<%= @user_profile.birth_month %>-<%= @user_profile.birth_day %>
+            <% end %>
+          </li>
+          <li class="sex">
+            <%= @user_profile.sex %>
+          </li>
+          <li class="tel">
+            <% if @user_profile.tel == '0000000000' %>
+            未登録
+            <% else %>
+            <%= @user_profile.tel %>
+            <% end %>
+          </li>
+          <li class="email">
+            <%= @user.email %>
           </li>
         </ul>
+        <div class="user-profile-card__bottom">
+          <%= link_to '#', class: 'contents' do %>
+          <span>
+            ユーザーページへ
+          </span>
+          <% end %>
+        </div>
+      </div>
+      <div class="user-profile-knowhows">
+        <h2 class="user-profile-knowhows__heading">ノウハウリスト</h2>
+        <% if @user_knowhows.any? %>
+        <% else %>
+        <p class="user-profile-knowhows__txt">まだ投稿したノウハウはありません。</p>
+        <% end %>
       </div>
     </div>
   </div>
 </main>
+
+<!-- footer -->
+<%= render 'shared/footer' %>
