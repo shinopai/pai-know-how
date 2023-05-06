@@ -77,6 +77,12 @@
         left: 0;
       }
     }
+    &.logout {
+      &::before {
+        @include set-pseudo("ico_logout.webp", 15px, 17px);
+        left: 0;
+      }
+    }
   }
 }
 

@@ -10,20 +10,11 @@
   <!-- jquery -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-  <%= javascript_importmap_tags %>
-  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, :type => "module" %>
   <%= stylesheet_link_tag "application.sass", "data-turbo-track": "reload" %>
 </head>
 
 <body>
-  <% if flash[:notice] %>
-  <p class="notice"><%= notice %></p>
-  <% end %>
-
-  <% if flash[:alert] %>
-  <p class="alert"><%= alert %></p>
-  <% end %>
-
   <%= yield %>
 </body>
 

@@ -1,3 +1,4 @@
 $(function(){
-  console.log('hello!!');
+  // 3秒後にflashメッセージをfadeout
+  $('.notice, .alert').fadeOut(3000);
 })

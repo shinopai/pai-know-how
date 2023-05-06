@@ -26,7 +26,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # The path used after login.
-  def after_login_path_for(resource)
-    user_profiles_path(current_user)
-  end
+  # def after_login_path_for(resource)
+  #   user_profiles_path(current_user)
+  # end
 end

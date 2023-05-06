@@ -5,7 +5,10 @@
         <%= link_to 'ホーム', '#', class: 'user-header__link home' %>
         <%= link_to current_user.email, '#', class: 'user-header__link user' %>
       </div>
-      <%= link_to 'アウトプットする', '#', class: 'user-header__link output' %>
+      <div class="user-header__item flex">
+        <%= link_to 'アウトプットする', '#', class: 'user-header__link output' %>
+        <%= link_to 'ログアウト', destroy_user_session_path, class: 'user-header__link logout' %>
+      </div>
     </div>
   </div>
 </header>
