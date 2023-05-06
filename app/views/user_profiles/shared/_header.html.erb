@@ -6,7 +6,7 @@
         <%= link_to current_user.email, '#', class: 'user-header__link user' %>
       </div>
       <div class="user-header__item flex">
-        <%= link_to 'アウトプットする', '#', class: 'user-header__link output' %>
+        <%= link_to 'アウトプットする', knowhows_create_path, class: 'user-header__link output iframe' %>
         <%= link_to 'ログアウト', destroy_user_session_path, class: 'user-header__link logout' %>
       </div>
     </div>
