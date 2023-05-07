@@ -146,3 +146,13 @@
     text-decoration: underline;
   }
 }
+
+/* iframeカスタマイズ */
+.modaal {
+  &-container {
+    max-width: 70vw;
+  }
+  &-iframe-elem {
+    max-height: 70vh;
+  }
+}

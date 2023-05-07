@@ -48,3 +48,59 @@
     vertical-align: bottom;
   }
 }
+
+/* create knowhow form */
+.knowhow-form {
+  @include set-border(1px, solid, #e3e4e6);
+  width: #{"min(60%, 550px)"};
+  margin: 0 auto;
+  border-radius: 5px;
+  &__main {
+    padding: 30px 0;
+  }
+  &__heading {
+    @include fs-16;
+    background-color: #e3e3e3;
+    text-align: center;
+    padding: 0.3em 0;
+    border-radius: 5px 5px 0 0;
+  }
+  &__body {
+    padding: 20px 10px;
+  }
+  &__item {
+    margin-bottom: 20px;
+  }
+  &__label {
+    @include fs-12;
+    color: $color-deep-blue;
+    font-weight: bold;
+  }
+  &__textfield,
+  &__textarea,
+  &__select {
+    @include fs-14;
+    padding: 0.3em 1em;
+  }
+  &__select {
+    width: #{"min(35%, 200px)"};
+  }
+  &__textarea {
+    resize: none;
+  }
+  &__textfield,
+  &__textarea {
+    width: 100%;
+  }
+  &__bottom {
+    column-gap: 20px;
+  }
+  &__submit {
+    @include fs-14;
+    background-color: #2171c1;
+    border: none;
+    color: #fff;
+    padding: 0.2em 1em;
+    border-radius: 3px;
+  }
+}

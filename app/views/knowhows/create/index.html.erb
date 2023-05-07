@@ -1,0 +1,44 @@
+<!-- main -->
+<main class="knowhow-form__main">
+  <div class="wrap">
+    <%= form_with model: @knowhow, url: knowhows_submit_path, class: 'knowhow-form', local: true do |knowhow| %>
+    <h2 class="knowhow-form__heading">アウトプットフォーム</h2>
+    <div class="knowhow-form__body">
+      <div class="knowhow-form__item">
+        <%= knowhow.label :category_id, 'カテゴリー', class: 'knowhow-form__label' %><br>
+        <%= knowhow.collection_select :category_id, Category.all, :id, :name, options = { include_blank: '選択してください' }, class: 'knowhow-form__select' %>
+      </div>
+      <div class="knowhow-form__item">
+        <%= knowhow.label :title, 'タイトル(30文字以内で入力)', class: 'knowhow-form__label' %><br>
+        <%= knowhow.text_field :title, class: 'knowhow-form__textfield' %>
+      </div>
+      <div class="knowhow-form__item">
+        <%= knowhow.label :content, '内容', class: 'knowhow-form__label' %><br>
+        <%= knowhow.text_area :content, class: 'knowhow-form__textarea', rows: 5 %>
+      </div>
+      <div class="knowhow-form__bottom flex">
+        <%= select_tag :format, options_for_select([['保存形式', ''], ['下書き', '1'], ['公開', '2']]), class: 'knowhow-form__select' %>
+        <%= knowhow.submit '保存', class: 'knowhow-form__submit' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</main>
+
+<!-- script -->
+<script>
+  $(function () {
+    // 親ページのiframeの高さを、当ページのコンテンツに合わせる
+    $('iframe', parent.document)
+      .on('load', function () {
+        // iframeの高さを初期化
+        $(this).height(0);
+
+        // 当ページのコンテンツの高さを取得
+        let contentHeight = $('.knowhow-form__main').height();
+
+        $(this).height(contentHeight + 100);
+      })
+      .trigger('load');
+  })
+</script>
