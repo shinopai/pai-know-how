@@ -87,3 +87,9 @@ gem 'carrierwave'
 
 # デバック
 gem 'pry-rails'
+
+# ページネーション
+gem 'kaminari'
+
+# ダミーデータ生成
+gem 'faker'

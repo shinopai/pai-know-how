@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    attributes:
+      knowhow:
+        title: 題名
+        content: 内容
+    errors:
+      models:
+        user:
+          format: "%{attribute}: %{message}"
+          blank: 必須項目です
+  # activemodel:   # Formオブジェクトを用いた場合
+  #    attributes:
+  #      order_object:
+  #        post_code: 郵便番号

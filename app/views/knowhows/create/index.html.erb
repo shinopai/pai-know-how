@@ -1,9 +1,13 @@
 <!-- main -->
 <main class="knowhow-form__main">
   <div class="wrap">
-    <%= form_with model: @knowhow, url: knowhows_submit_path, class: 'knowhow-form', local: true do |knowhow| %>
+    <%= form_with model: @knowhow, url: knowhows_submit_path, class: 'knowhow-form', html: { novalidate: true } do |knowhow| %>
     <h2 class="knowhow-form__heading">アウトプットフォーム</h2>
     <div class="knowhow-form__body">
+
+      <!-- エラーメッセージ -->
+      <%= render 'shared/error_messages', model: knowhow.object %>
+
       <div class="knowhow-form__item">
         <%= knowhow.label :category_id, 'カテゴリー', class: 'knowhow-form__label' %><br>
         <%= knowhow.collection_select :category_id, Category.all, :id, :name, options = { include_blank: '選択してください' }, class: 'knowhow-form__select' %>
@@ -17,13 +21,19 @@
         <%= knowhow.text_area :content, class: 'knowhow-form__textarea', rows: 5 %>
       </div>
       <div class="knowhow-form__bottom flex">
-        <%= select_tag :format, options_for_select([['保存形式', ''], ['下書き', '1'], ['公開', '2']]), class: 'knowhow-form__select' %>
+        <%= select_tag :format, options_for_select([['保存形式', ''], ['下書き', '1'], ['公開', '2']]), class: 'knowhow-form__select', required: true %>
         <%= knowhow.submit '保存', class: 'knowhow-form__submit' %>
       </div>
     </div>
+
+    <!-- 現在のユーザーのidをpostするように設定 -->
+    <%= hidden_field_tag :user_id, current_user.id %>
     <% end %>
   </div>
 </main>
+
+<!-- flashメッセージが存在するか -->
+<% is_flash_exsists = flash[:notice] ? true : false %>
 
 <!-- script -->
 <script>
@@ -40,5 +50,10 @@
         $(this).height(contentHeight + 100);
       })
       .trigger('load');
+
+    // flashメッセージが存在していたら親ページをリロード
+    if (<%= is_flash_exsists %>) {
+      parent.location.href = parent.location.href;
+    }
   })
 </script>

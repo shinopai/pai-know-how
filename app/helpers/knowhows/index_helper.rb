@@ -1,2 +1,0 @@
-module Knowhows::IndexHelper
-end

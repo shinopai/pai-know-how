@@ -54,6 +54,26 @@
       <div class="user-profile-knowhows">
         <h2 class="user-profile-knowhows__heading">ノウハウリスト</h2>
         <% if @user_knowhows.any? %>
+        <div class="user-profile-knowhows__list">
+          <% @user_knowhows.each do |knowhow| %>
+          <div class="user-profile-knowhows-card flex">
+            <figure class="user-profile-knowhows-card__img">
+              <% if @user_profile.profile_image? %>
+              <%= image_tag @user_profile.profile_image.url %>
+              <% else %>
+              <%= image_tag 'img_user.webp' %>
+              <% end %>
+            </figure>
+            <div class="user-profile-knowhows-card__detail flex">
+              <span class="category <%= set_class_name(knowhow.category.id) %>">
+                <%= knowhow.category.name %>
+              </span>
+              <h3 class="title"><%= knowhow.title %></h3>
+              <p class="content"><%= knowhow.content %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
         <% else %>
         <p class="user-profile-knowhows__txt">まだ投稿したノウハウはありません。</p>
         <% end %>

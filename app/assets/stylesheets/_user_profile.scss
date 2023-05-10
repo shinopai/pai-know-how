@@ -3,6 +3,7 @@
 .user-profile {
   &__wrap {
     justify-content: space-between;
+    align-items: baseline;
   }
   &-card {
     @include set-border(1px, solid, #e3e4e6);
@@ -88,6 +89,52 @@
       @include fs-14;
       margin-top: 15px;
       padding-left: 1em;
+    }
+    &__list {
+      padding: 20px;
+    }
+    &-card {
+      @include set-border(1px, solid, #e3e4e6);
+      border-radius: 5px;
+      padding: 20px;
+      column-gap: 30px;
+      margin-bottom: 15px;
+      &__img {
+        width: 100px;
+      }
+      &__detail {
+        flex-direction: column;
+        row-gap: 10px;
+        .category {
+          @include fs-12;
+          position: relative;
+          padding-left: 1.8em;
+          &.news {
+            &::before {
+              @include set-pseudo("ico_news.webp", 18px, 15px);
+              left: 0;
+            }
+          }
+          &.share {
+            &::before {
+              @include set-pseudo("ico_share.webp", 18px, 15px);
+              left: 0;
+            }
+          }
+          &.knowhow {
+            &::before {
+              @include set-pseudo("ico_knowhow.webp", 18px, 15px);
+              left: 0;
+            }
+          }
+        }
+        .title {
+          @include fs-16;
+        }
+        .content {
+          @include fs-14;
+        }
+      }
     }
   }
 }

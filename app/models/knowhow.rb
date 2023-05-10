@@ -9,5 +9,6 @@ class Knowhow < ApplicationRecord
               length: { maximum: 30 }
     validates :content,
               length: { maximum: 300 }
+    validates :category_id
   end
 end

@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   # relation
   has_many :knowhows
+  has_many :drafts
   has_one :user_profile, dependent: :destroy, class_name: 'UserProfile'
 end
