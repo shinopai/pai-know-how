@@ -14,7 +14,7 @@ class UserProfiles::IndexController < ApplicationController
     @user_profile = @user.user_profile
 
     # 関連するノウハウを取得
-    @user_knowhows = @user.knowhows
+    @user_knowhows = Knowhow.where(user_id: @user.id).page(params[:page]).per(6)
 
     render template: 'user_profiles/index'
   end

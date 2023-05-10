@@ -156,3 +156,30 @@
     max-height: 70vh;
   }
 }
+
+/* ページネーションカスタマイズ */
+.pagination {
+  @include fs-14;
+  span {
+    &:not(.next),
+    &:not(.last),
+    &:not(.first),
+    &:not(.prev) {
+      @include set-border(1px, solid, #e3e4e6);
+      padding: 0.2em 1em;
+    }
+    &.next,
+    &.last,
+    &.first,
+    &.prev {
+      border: none;
+      padding: 0;
+      a {
+        line-height: 2em;
+      }
+    }
+    &.current {
+      background-color: #e3e3e3;
+    }
+  }
+}
