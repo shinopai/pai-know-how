@@ -3,10 +3,12 @@
 
 <!-- main -->
 <main class="main">
+  <!-- flash message -->
+  <%= render 'shared/flash_messages' %>
+
   <div class="wrap">
     <div class="auth-form__wrap">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'auth-form' }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="auth-form__item">
         <%= f.label :email, 'メールアドレス', class: 'auth-form__label' %><br />

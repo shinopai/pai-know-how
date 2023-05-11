@@ -54,6 +54,7 @@
   }
   &__item {
     column-gap: 40px;
+    position: relative;
   }
   &__link {
     @include fs-14;
@@ -82,6 +83,24 @@
         @include set-pseudo("ico_logout.webp", 15px, 17px);
         left: 0;
       }
+    }
+  }
+  &-menu {
+    @include fs-14;
+    @include set-border(1px, solid, #97b5d1);
+    position: absolute;
+    top: 31px;
+    right: 0;
+    background-color: #fff;
+    padding: 15px 15px 0 15px;
+    z-index: 1;
+    width: 200px;
+    border-radius: 5px;
+    &.inactive {
+      display: none;
+    }
+    &__item {
+      margin-bottom: 10px;
     }
   }
 }

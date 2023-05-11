@@ -4,6 +4,18 @@
       <div class="user-header__item flex">
         <%= link_to 'ホーム', '#', class: 'user-header__link home' %>
         <%= link_to current_user.email, '#', class: 'user-header__link user' %>
+        <!-- dropdown menu -->
+        <ul class="user-header-menu inactive">
+          <li class="user-header-menu__item">
+            <%= link_to 'ノウハウリスト', user_profiles_path %>
+          </li>
+          <li class="user-header-menu__item">
+            <%= link_to 'タイムライン', user_profiles_path %>
+          </li>
+          <li class="user-header-menu__item">
+            <%= link_to 'ユーザーリスト', user_profiles_path %>
+          </li>
+        </ul>
       </div>
       <div class="user-header__item flex">
         <%= link_to 'アウトプットする', knowhows_create_path, class: 'user-header__link output iframe' %>

@@ -93,3 +93,6 @@ gem 'kaminari'
 
 # ダミーデータ生成
 gem 'faker'
+
+# 検索
+gem 'ransack'
