@@ -43,8 +43,11 @@
             <%= @user.email %>
           </li>
         </ul>
+        <% if is_myself(@user.id, current_user.id) %>
+        <button class="user-profile-card__btn follow">フォローする</button>
+        <% end %>
         <div class="user-profile-card__bottom">
-          <%= link_to '#', class: 'contents' do %>
+          <%= link_to user_profiles_path(@user), class: 'contents' do %>
           <span>
             ユーザーページへ
           </span>
