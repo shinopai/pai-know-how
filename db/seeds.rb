@@ -8,11 +8,20 @@
 #   user_profile.save!
 # end
 
-350.times do
-  Knowhow.create!(
-    title: Faker::Address.country,
-    content: Faker::Lorem.sentence,
-    user_id: User.find(rand(1..User.count)).id,
-    category_id: Category.find(rand(1..Category.count)).id
-  )
+# 350.times do
+#   Knowhow.create!(
+#     title: Faker::Address.country,
+#     content: Faker::Lorem.sentence,
+#     user_id: User.find(rand(1..User.count)).id,
+#     category_id: Category.find(rand(1..Category.count)).id
+#   )
+# end
+
+UserProfile.count.times do |i|
+  id = i + 1
+
+  user_profile = UserProfile.where(user_id: id).first
+  user_profile.name = Faker::Name.first_name
+
+  user_profile.save
 end
