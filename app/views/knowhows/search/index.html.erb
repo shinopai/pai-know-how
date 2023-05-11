@@ -2,9 +2,6 @@
 <%= render 'user_profiles/shared/header' %>
 
 <!-- main -->
-<!-- flash message -->
-<%= render 'shared/flash_messages' %>
-
 <main class="user-main">
   <div class="wrap">
     <div class="user-profile__wrap flex">
@@ -82,11 +79,11 @@
             </div>
           </div>
           <% end %>
-          <%= paginate @knowhows %>
         </div>
         <% else %>
         <p class="user-profile-knowhows__txt">まだ投稿したノウハウはありません。</p>
         <% end %>
+        <%= paginate @knowhows %>
       </div>
     </div>
   </div>

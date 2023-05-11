@@ -11,4 +11,13 @@ class Knowhow < ApplicationRecord
               length: { maximum: 300 }
     validates :category_id
   end
+
+  # ransackable
+  def self.ransackable_attributes(auth_object = nil)
+    ["title", "content"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["category", "user"]
+  end
 end

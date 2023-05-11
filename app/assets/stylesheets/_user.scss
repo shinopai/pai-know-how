@@ -1,5 +1,6 @@
-// user profile
+// user
 
+// user profile
 .user-profile {
   &__wrap {
     justify-content: space-between;
@@ -132,6 +133,64 @@
         }
         .content {
           @include fs-14;
+        }
+        .date {
+          @include fs-12;
+          color: #848587;
+        }
+      }
+    }
+  }
+}
+
+/* user list */
+.user-list {
+  @include set-border(1px, solid, #e3e4e6);
+  border-radius: 5px;
+  width: 75%;
+  background-color: #fafbfd;
+  &__heading {
+    @include fs-16;
+    background-color: #e3e3e3;
+    text-align: center;
+    padding: 0.3em 0;
+    border-radius: 5px 5px 0 0;
+  }
+  &__inner {
+    padding: 20px;
+    justify-content: flex-start;
+    column-gap: 52px;
+    row-gap: 25px;
+  }
+  &-card {
+    width: 20%;
+    &__top {
+      @include fs-14;
+      background-color: #e3e3e3;
+      border-radius: 5px 5px 0 0;
+      text-align: center;
+      padding: 0.3em 0;
+      span {
+        position: relative;
+        padding-left: 0.3em;
+        &::before {
+          @include set-pseudo("ico_user_black.webp", 13px, 15px);
+          left: -1em;
+        }
+      }
+    }
+    &__bottom {
+      @include fs-14;
+      background-color: #d9dadc;
+      text-align: center;
+      padding: 0.3em 0;
+      border-radius: 0 0 5px 5px;
+      span {
+        position: relative;
+        padding-right: 1.5em;
+        &::after {
+          @include set-pseudo("ico_arrow.webp", 20px, 18px);
+          right: 0;
         }
       }
     }

@@ -7,13 +7,13 @@
         <!-- dropdown menu -->
         <ul class="user-header-menu inactive">
           <li class="user-header-menu__item">
-            <%= link_to 'ノウハウリスト', user_profiles_path %>
+            <%= link_to 'ノウハウリスト', user_profiles_path(current_user) %>
           </li>
           <li class="user-header-menu__item">
-            <%= link_to 'タイムライン', user_profiles_path %>
+            <%= link_to 'タイムライン', user_profiles_path(current_user) %>
           </li>
           <li class="user-header-menu__item">
-            <%= link_to 'ユーザーリスト', user_profiles_path %>
+            <%= link_to 'ユーザーリスト', user_lists_path %>
           </li>
         </ul>
       </div>

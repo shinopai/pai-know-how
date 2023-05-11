@@ -2,9 +2,6 @@
 <%= render 'user_profiles/shared/header' %>
 
 <!-- main -->
-<!-- flash message -->
-<%= render 'shared/flash_messages' %>
-
 <main class="user-main">
   <div class="wrap">
     <div class="user-profile__wrap flex">
@@ -51,42 +48,37 @@
           <% end %>
         </div>
       </div>
-      <div class="user-profile-knowhows">
-        <h2 class="user-profile-knowhows__heading">ノウハウリスト</h2>
-        <!-- 検索フォーム -->
-        <%= search_form_for @q, url: knowhows_search_path, class: 'search-form flex' do |search| %>
-        <%= search.search_field :title_or_content_gt, class: 'search-form__textfield', placeholder: 'ノウハウをキーワードで検索' %>
-        <%= search.submit '', class: 'search-form__submit' %>
-        <% end %>
-
-        <% if @knowhows.any? %>
-        <div class="user-profile-knowhows__list">
-          <% @knowhows.each do |knowhow| %>
-          <div class="user-profile-knowhows-card flex">
-            <figure class="user-profile-knowhows-card__img">
+      <div class="user-list">
+        <h2 class="user-list__heading">ユーザーリスト</h2>
+        <% if @users.any? %>
+        <div class="user-list__inner flex">
+          <% @users.each do |user| %>
+          <div class="user-list-card">
+            <div class="user-list-card__top">
+              <span>
+                <%= user.user_profile.name %>
+              </span>
+            </div>
+            <figure class="user-list-card__img">
               <% if @user_profile.profile_image? %>
               <%= image_tag @user_profile.profile_image.url %>
               <% else %>
               <%= image_tag 'img_user.webp' %>
               <% end %>
             </figure>
-            <div class="user-profile-knowhows-card__detail flex">
-              <span class="category <%= set_class_name(knowhow.category.id) %>">
-                <%= knowhow.category.name %>
-              </span>
-              <h3 class="title"><%= knowhow.title %></h3>
-              <p class="content"><%= knowhow.content %></p>
-              <p class="date">
-                <%= knowhow.user.user_profile.name %>さんが<%= time_ago_in_words(knowhow.created_at) %>前に作成
-              </p>
-            </div>
+            <div class="user-list-card__bottom">
+              <a class="contents" href="#">
+                <span>
+                  ユーザーページへ
+                </span>
+              </a> </div>
           </div>
           <% end %>
-          <%= paginate @knowhows %>
         </div>
         <% else %>
-        <p class="user-profile-knowhows__txt">まだ投稿したノウハウはありません。</p>
+        <p class="user-list__txt">ユーザーはいません。</p>
         <% end %>
+        <%= paginate @users %>
       </div>
     </div>
   </div>

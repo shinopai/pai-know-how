@@ -17,6 +17,12 @@ Rails.application.routes.draw do
   # ユーザープロフィール画面(利用登録orログイン後遷移ページ)
   get '/user_profile/:id', to: 'user_profiles/index#index', as: 'user_profiles'
 
+  # ノウハウ検索
+  get '/search', to: 'knowhows/search/index#search', as: :knowhows_search
+
+  # ユーザーリスト
+  get '/users', to: 'user_lists/index#index', as: :user_lists
+
   # ノウハウ新規登録画面
   get 'knowhow/create', to: 'knowhows/create/index#create', as: 'knowhows_create'
 

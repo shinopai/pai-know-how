@@ -105,3 +105,28 @@
     cursor: pointer;
   }
 }
+
+/* search form */
+.search-form {
+  margin: 20px auto 0;
+  width: #{"min(95%, 450px)"};
+  justify-content: center;
+  &__textfield {
+    @include fs-14;
+    @include set-border(1px, solid, #e3e4e6);
+    border-radius: 5px 0 0 5px;
+    width: 90%;
+    padding: 0.4em 0.5em;
+  }
+  &__submit {
+    border: none;
+    background-color: #e3e3e3;
+    border-radius: 0 5px 5px 0;
+    width: 10%;
+    background-image: url("ico_search.webp");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+}
