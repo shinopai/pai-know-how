@@ -17,4 +17,8 @@ module UserHelper
       return false
     end
   end
+
+  def is_following(partner_id, current_user)
+    current_user.follows.where(partner_id: partner_id).any?
+  end
 end

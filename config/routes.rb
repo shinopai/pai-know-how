@@ -28,4 +28,10 @@ Rails.application.routes.draw do
 
   # ノウハウ新規登録
   post 'knowhow/submit', to: 'knowhows/create/index#submit', as: 'knowhows_submit'
+
+  # 相手をフォロー
+  post '/follow', to: 'follows/create/index#submit', as: :follows_submit
+
+  # フォローを外す
+  post '/unfollow', to: 'follows/delete/index#delete', as: :follows_delete
 end

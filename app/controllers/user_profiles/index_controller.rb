@@ -3,6 +3,7 @@ class UserProfiles::IndexController < ApplicationController
 
   def index
     @user = User.find(params[:id])
+    @follow = Follow.new
 
     # 関連するプロフィールテーブルが存在していないなら作成
     if @user.user_profile.nil?

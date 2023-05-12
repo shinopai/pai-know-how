@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # relation
-  has_many :knowhows
-  has_many :drafts
+  has_many :knowhows, dependent: :destroy
+  has_many :drafts, dependent: :destroy
+  has_many :follows, dependent: :destroy
   has_one :user_profile, dependent: :destroy, class_name: 'UserProfile'
 end

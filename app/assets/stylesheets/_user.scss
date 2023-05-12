@@ -29,6 +29,7 @@
     &__list {
       @include fs-12;
       padding: 15px 0;
+      word-break: break-all;
       li {
         position: relative;
         padding-left: 2.5em;
@@ -36,24 +37,28 @@
           &::before {
             @include set-pseudo("ico_cake.webp", 15px, 13px);
             left: 0.5em;
+            top: 3px;
           }
         }
         &.sex {
           &::before {
             @include set-pseudo("ico_gender.webp", 18px, 18px);
             left: 0.2em;
+            top: 3px;
           }
         }
         &.tel {
           &::before {
             @include set-pseudo("ico_tel.webp", 13px, 15px);
             left: 0.5em;
+            top: 3px;
           }
         }
         &.email {
           &::before {
             @include set-pseudo("ico_email.webp", 15px, 13px);
             left: 0.5em;
+            top: 3px;
           }
         }
       }
@@ -66,19 +71,23 @@
       cursor: pointer;
       background-color: transparent;
       padding: 0.2em 1.5em 0.2em 2em;
-      position: relative;
-      &.follow {
-        &::before {
-          @include set-pseudo("ico_user_plus.webp", 18px, 20px);
-          @include set-top-pos("18px");
-          left: 0.7em;
+      &-wrap {
+        position: relative;
+        margin: 10px auto 20px;
+        width: fit-content;
+        &.follow {
+          &::before {
+            @include set-pseudo("ico_user_plus.webp", 18px, 20px);
+            @include set-top-pos("18px");
+            left: 10px;
+          }
         }
-      }
-      &.followed {
-        &::before {
-          @include set-pseudo("ico_user.webp", 18px, 20px);
-          @include set-top-pos("18px");
-          left: 0.7em;
+        &.followed {
+          &::before {
+            @include set-pseudo("ico_user_black.webp", 18px, 20px);
+            @include set-top-pos("18px");
+            left: 10px;
+          }
         }
       }
     }
