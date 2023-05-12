@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   root "home#index"
 
   # ユーザープロフィール画面(利用登録orログイン後遷移ページ)
-  get '/user_profile/:id', to: 'user_profiles/index#index', as: 'user_profiles'
+  get '/user_profile/:id', to: 'user_profiles/index#index', as: :user_profiles
+
+  # タイムライン
+  get '/timelines', to: 'user_profiles/index#get_timelines', as: :user_profiles_timelines
 
   # ノウハウ検索
   get '/search', to: 'knowhows/search/index#search', as: :knowhows_search

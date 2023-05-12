@@ -19,4 +19,17 @@ class UserProfiles::IndexController < ApplicationController
 
     render template: 'user_profiles/index'
   end
+
+  def get_timelines
+    @user = current_user
+
+    # 関連するプロフィールを取得
+    @user_profile = @user.user_profile
+
+    # フォロー中のユーザーが投稿したノウハウを全て取得
+    ids = @user.follows.pluck(:partner_id)
+    @knowhows = Knowhow.where(user_id: ids).page(params[:page]).per(6)
+
+    render template: 'user_profiles/timelines'
+  end
 end

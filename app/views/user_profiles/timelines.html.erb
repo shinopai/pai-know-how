@@ -1,0 +1,104 @@
+<!-- header -->
+<%= render 'user_profiles/shared/header' %>
+
+<!-- main -->
+<main class="user-main">
+  <div class="wrap">
+    <div class="user-profile__wrap flex">
+      <div class="user-profile-card">
+        <div class="user-profile-card__top">
+          <span>
+            <%= @user_profile.name %>
+          </span>
+        </div>
+        <figure class="user-profile-card__img">
+          <% if @user_profile.profile_image? %>
+          <%= image_tag @user_profile.profile_image.url %>
+          <% else %>
+          <%= image_tag 'img_user.webp' %>
+          <% end %>
+        </figure>
+        <ul class="user-profile-card__list">
+          <li class="birth">
+            <% if @user_profile.birth_year == 0 %>
+            未登録
+            <% else %>
+            <%= @user_profile.birth_year %>-<%= @user_profile.birth_month %>-<%= @user_profile.birth_day %>
+            <% end %>
+          </li>
+          <li class="sex">
+            <%= @user_profile.sex %>
+          </li>
+          <li class="tel">
+            <% if @user_profile.tel == '0000000000' %>
+            未登録
+            <% else %>
+            <%= @user_profile.tel %>
+            <% end %>
+          </li>
+          <li class="email">
+            <%= @user.email %>
+          </li>
+        </ul>
+        <% if is_myself(@user.id, current_user.id) %>
+        <% if is_following(@user.id, current_user) %>
+        <%= form_with model: @follow, url: follows_delete_path do |follow| %>
+        <div class="user-profile-card__btn-wrap followed">
+          <%= follow.submit 'フォロー済み', class: 'user-profile-card__btn' %>
+        </div>
+        <%= follow.hidden_field :partner_id, :value => @user.id %>
+        <% end %>
+        <% else %>
+        <%= form_with model: @follow, url: follows_submit_path do |follow| %>
+        <div class="user-profile-card__btn-wrap follow">
+          <%= follow.submit 'フォローする', class: 'user-profile-card__btn' %>
+        </div>
+        <%= follow.hidden_field :partner_id, :value => @user.id %>
+        <% end %>
+        <% end %>
+        <% end %>
+        <div class="user-profile-card__bottom">
+          <%= link_to user_profiles_path(@user), class: 'contents' do %>
+          <span>
+            ユーザーページへ
+          </span>
+          <% end %>
+        </div>
+      </div>
+      <div class="user-profile-knowhows">
+        <h2 class="user-profile-knowhows__heading">タイムライン</h2>
+        <% if @knowhows.any? %>
+        <div class="user-profile-knowhows__list">
+          <% @knowhows.each do |knowhow| %>
+          <div class="user-profile-knowhows-card flex">
+            <figure class="user-profile-knowhows-card__img">
+              <% if @user_profile.profile_image? %>
+              <%= image_tag @user_profile.profile_image.url %>
+              <% else %>
+              <%= image_tag 'img_user.webp' %>
+              <% end %>
+            </figure>
+            <div class="user-profile-knowhows-card__detail flex">
+              <span class="category <%= set_class_name(knowhow.category.id) %>">
+                <%= knowhow.category.name %>
+              </span>
+              <h3 class="title"><%= knowhow.title %></h3>
+              <p class="content"><%= knowhow.content %></p>
+              <p class="date">
+                <%= knowhow.user.user_profile.name %>さんが<%= time_ago_in_words(knowhow.created_at) %>前に作成
+              </p>
+            </div>
+          </div>
+          <% end %>
+          <%= paginate @knowhows %>
+        </div>
+        <% else %>
+        <p class="user-profile-knowhows__txt">まだ投稿したノウハウはありません。</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- footer -->
+<%= render 'shared/footer' %>

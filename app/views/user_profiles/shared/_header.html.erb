@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="user-header__inner flex">
       <div class="user-header__item flex">
-        <%= link_to 'ホーム', '#', class: 'user-header__link home' %>
+        <%= link_to 'ホーム', user_profiles_path(current_user), class: 'user-header__link home' %>
         <%= link_to current_user.email, '#', class: 'user-header__link user' %>
         <!-- dropdown menu -->
         <ul class="user-header-menu inactive">
@@ -10,7 +10,7 @@
             <%= link_to 'ノウハウリスト', user_profiles_path(current_user) %>
           </li>
           <li class="user-header-menu__item">
-            <%= link_to 'タイムライン', user_profiles_path(current_user) %>
+            <%= link_to 'タイムライン', user_profiles_timelines_path %>
           </li>
           <li class="user-header-menu__item">
             <%= link_to 'ユーザーリスト', user_lists_path %>
