@@ -1,0 +1,60 @@
+<div class="user-profile-card">
+  <div class="user-profile-card__top">
+    <span>
+      <%= @user_profile.name %>
+    </span>
+  </div>
+  <figure class="user-profile-card__img">
+    <% if @user_profile.profile_image? %>
+    <%= image_tag @user_profile.profile_image.url %>
+    <% else %>
+    <%= image_tag 'img_user.webp' %>
+    <% end %>
+  </figure>
+  <ul class="user-profile-card__list">
+    <li class="birth">
+      <% if @user_profile.birth_year == 0 %>
+      未登録
+      <% else %>
+      <%= @user_profile.birth_year %>-<%= @user_profile.birth_month %>-<%= @user_profile.birth_day %>
+      <% end %>
+    </li>
+    <li class="sex">
+      <%= @user_profile.sex %>
+    </li>
+    <li class="tel">
+      <% if @user_profile.tel == '0000000000' %>
+      未登録
+      <% else %>
+      <%= @user_profile.tel %>
+      <% end %>
+    </li>
+    <li class="email">
+      <%= @user.email %>
+    </li>
+  </ul>
+  <% if is_myself(@user.id, current_user.id) %>
+  <% if is_following(@user.id, current_user) %>
+  <%= form_with model: @follow, url: follows_delete_path do |follow| %>
+  <div class="user-profile-card__btn-wrap followed">
+    <%= follow.submit 'フォロー済み', class: 'user-profile-card__btn' %>
+  </div>
+  <%= follow.hidden_field :partner_id, :value => @user.id %>
+  <% end %>
+  <% else %>
+  <%= form_with model: @follow, url: follows_submit_path do |follow| %>
+  <div class="user-profile-card__btn-wrap follow">
+    <%= follow.submit 'フォローする', class: 'user-profile-card__btn' %>
+  </div>
+  <%= follow.hidden_field :partner_id, :value => @user.id %>
+  <% end %>
+  <% end %>
+  <% end %>
+  <div class="user-profile-card__bottom">
+    <%= link_to user_profiles_path(@user), class: 'contents' do %>
+    <span>
+      ユーザーページへ
+    </span>
+    <% end %>
+  </div>
+</div>

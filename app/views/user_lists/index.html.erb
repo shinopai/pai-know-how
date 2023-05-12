@@ -5,49 +5,9 @@
 <main class="user-main">
   <div class="wrap">
     <div class="user-profile__wrap flex">
-      <div class="user-profile-card">
-        <div class="user-profile-card__top">
-          <span>
-            <%= @user_profile.name %>
-          </span>
-        </div>
-        <figure class="user-profile-card__img">
-          <% if @user_profile.profile_image? %>
-          <%= image_tag @user_profile.profile_image.url %>
-          <% else %>
-          <%= image_tag 'img_user.webp' %>
-          <% end %>
-        </figure>
-        <ul class="user-profile-card__list">
-          <li class="birth">
-            <% if @user_profile.birth_year == 0 %>
-            未登録
-            <% else %>
-            <%= @user_profile.birth_year %>-<%= @user_profile.birth_month %>-<%= @user_profile.birth_day %>
-            <% end %>
-          </li>
-          <li class="sex">
-            <%= @user_profile.sex %>
-          </li>
-          <li class="tel">
-            <% if @user_profile.tel == '0000000000' %>
-            未登録
-            <% else %>
-            <%= @user_profile.tel %>
-            <% end %>
-          </li>
-          <li class="email">
-            <%= @user.email %>
-          </li>
-        </ul>
-        <div class="user-profile-card__bottom">
-          <%= link_to user_profiles_path(@user), class: 'contents' do %>
-          <span>
-            ユーザーページへ
-          </span>
-          <% end %>
-        </div>
-      </div>
+      <!-- ユーザープロフィールカード -->
+      <%= render 'user_profiles/shared/user_profile_card', { user: @user, user_profile: @user_profile } %>
+
       <div class="user-list">
         <h2 class="user-list__heading">ユーザーリスト</h2>
         <% if @users.any? %>
