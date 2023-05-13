@@ -50,6 +50,10 @@
   <% end %>
   <% end %>
   <% end %>
+
+  <% if !is_myself(@user.id, current_user.id) %>
+  <%= link_to 'プロフィール編集', user_profiles_edit_path(@user), class: 'user-profile-card__btn--edit' %>
+  <% end %>
   <div class="user-profile-card__bottom">
     <%= link_to user_profiles_path(@user), class: 'contents' do %>
     <span>

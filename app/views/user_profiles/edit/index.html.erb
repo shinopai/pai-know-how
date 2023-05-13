@@ -1,0 +1,53 @@
+<!-- header -->
+<%= render 'user_profiles/shared/header' %>
+
+<!-- main -->
+<main class="user-main">
+  <div class="wrap">
+    <div class="user-form__wrap">
+      <%= form_with model: @user_profile, url: user_profiles_edit_submit_path(@user), class: 'user-form' do |profile| %>
+
+      <div class="user-form__item">
+        <%= profile.label :name, '名前', class: 'user-form__label' %><br />
+        <%= profile.text_field :name, autocomplete: "name", class: 'user-form__text' %>
+      </div>
+
+      <div class="user-form__item">
+        <%= profile.label :birth_year, '生年月日', class: 'user-form__label' %><br />
+        <div class="user-form__select-wrap">
+          <%= profile.select :birth_year, output_years_array.map { |year| [year, year] }, {include_blank: '年'},
+          class: 'user-form__select' %>
+          <%= profile.select :birth_month, output_months_array.map { |month| [month, month] }, {include_blank: '月'},
+          class: 'user-form__select' %>
+          <%= profile.select :birth_day, output_days_array.map { |day| [day, day] }, {include_blank: '日'},
+          class: 'user-form__select' %>
+          <p class="user-form__txt--caution">※一度登録すると再編集は出来ません</p>
+        </div>
+      </div>
+
+      <div class="user-form__item">
+        <%= profile.label :profile_image, 'プロフィール画像', class: 'user-form__label' %><br />
+        <%= profile.file_field :profile_image, autocomplete: "profile_image", class: 'user-form__file' %>
+      </div>
+
+      <div class="user-form__item">
+        <%= profile.label :sex, '性別', class: 'user-form__label' %><br />
+        <%= profile.select :sex, { 男性: 0, 女性: 1 }, {include_blank: '性別'}, class: 'user-form__select' %>
+      </div>
+
+      <div class="user-form__item">
+        <%= profile.label :tel, '電話番号', class: 'user-form__label' %><br />
+        <%= profile.text_field :tel, autocomplete: "tel", class: 'user-form__text' %>
+      </div>
+
+      <div class="user-form__item">
+        <%= profile.submit "更新", class: 'user-form__submit' %>
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<!-- footer -->
+<%= render 'shared/footer' %>

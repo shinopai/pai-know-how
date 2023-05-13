@@ -90,6 +90,22 @@
           }
         }
       }
+      &--edit {
+        @include set-border(1px, solid, #e3e4e6);
+        @include fs-14;
+        margin: 10px auto 20px;
+        display: block;
+        cursor: pointer;
+        background-color: transparent;
+        padding: 0.2em 1.5em 0.2em 2em;
+        width: fit-content;
+        position: relative;
+        &::before {
+          @include set-pseudo("ico_edit.webp", 15px, 18px);
+          left: 0.8em;
+          top: 5px;
+        }
+      }
     }
     &__bottom {
       @include fs-14;

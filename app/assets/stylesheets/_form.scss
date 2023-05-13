@@ -130,3 +130,47 @@
     cursor: pointer;
   }
 }
+
+/* user form */
+.user-form {
+  background-color: #fff;
+  padding: 30px 20px;
+  &__wrap {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  &__item {
+    margin-bottom: 15px;
+  }
+  &__label {
+    @include fs-12;
+    color: #173055;
+    font-weight: bold;
+  }
+  &__txt {
+    &--caution {
+      @include fs-12;
+      margin-top: 5px;
+      color: #de0a0a;
+    }
+  }
+  &__text,
+  &__select {
+    @include fs-14;
+    padding: 0.3em 1em;
+  }
+  &__text {
+    width: 100%;
+  }
+  &__submit {
+    @include fs-14;
+    background-color: #173055;
+    color: #fff;
+    border: none;
+    width: 250px;
+    padding: 0.5em 0;
+    cursor: pointer;
+    margin: 30px auto 0;
+    display: block;
+  }
+}

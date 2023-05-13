@@ -21,4 +21,16 @@ module UserHelper
   def is_following(partner_id, current_user)
     current_user.follows.where(partner_id: partner_id).any?
   end
+
+  def output_years_array
+    (1900..2000).to_a
+  end
+
+  def output_months_array
+    (1..12).to_a
+  end
+
+  def output_days_array
+    (1..31).to_a
+  end
 end
