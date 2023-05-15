@@ -10,6 +10,7 @@ ja:
         birth_month: 月
         birth_day: 日
         sex: 性別
+        tel: 電話番号
     errors:
       models:
         user:

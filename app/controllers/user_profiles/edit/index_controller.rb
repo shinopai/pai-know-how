@@ -11,6 +11,8 @@ class UserProfiles::Edit::IndexController < ApplicationController
   def submit
     @user_profile = @user.user_profile
 
+    logger.debug(user_profile_params[:sex].class)
+
     if @user.user_profile.update(user_profile_params)
       redirect_to user_profiles_path(@user), notice: 'プロフィールを更新しました'
     else

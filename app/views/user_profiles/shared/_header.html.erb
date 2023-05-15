@@ -3,7 +3,7 @@
     <div class="user-header__inner flex">
       <div class="user-header__item flex">
         <%= link_to 'ホーム', user_profiles_path(current_user), class: 'user-header__link home' %>
-        <%= link_to current_user.email, '#', class: 'user-header__link user' %>
+        <%= link_to current_user.user_profile.name, '#', class: 'user-header__link user' %>
         <!-- dropdown menu -->
         <ul class="user-header-menu inactive">
           <li class="user-header-menu__item">

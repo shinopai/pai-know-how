@@ -18,11 +18,11 @@
       <div class="user-form__item">
         <%= profile.label :birth_year, '生年月日', class: 'user-form__label' %><br />
         <div class="user-form__select-wrap">
-          <%= profile.select :birth_year, output_years_array.map { |year| [year, year] }, {include_blank: '年'},
+          <%= profile.select :birth_year, output_years_array.map { |year| [year, year] }, { selected: 1900 },
           class: 'user-form__select' %>
-          <%= profile.select :birth_month, output_months_array.map { |month| [month, month] }, {include_blank: '月'},
+          <%= profile.select :birth_month, output_months_array.map { |month| [month, month] }, { selected: 1 },
           class: 'user-form__select' %>
-          <%= profile.select :birth_day, output_days_array.map { |day| [day, day] }, {include_blank: '日'},
+          <%= profile.select :birth_day, output_days_array.map { |day| [day, day] }, { selected: 1 },
           class: 'user-form__select' %>
           <p class="user-form__txt--caution">※一度登録すると再編集は出来ません</p>
         </div>
@@ -35,7 +35,7 @@
 
       <div class="user-form__item">
         <%= profile.label :sex, '性別', class: 'user-form__label' %><br />
-        <%= profile.select :sex, { 男性: 0, 女性: 1 }, {include_blank: '性別'}, class: 'user-form__select' %>
+        <%= profile.select :sex, { 男性: '男性', 女性: '女性' }, { selected: @user_profile.sex }, class: 'user-form__select' %>
       </div>
 
       <div class="user-form__item">

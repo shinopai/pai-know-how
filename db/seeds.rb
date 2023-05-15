@@ -22,8 +22,6 @@ UserProfile.count.times do |i|
 
   user_profile = UserProfile.where(user_id: id).first
   user_profile.update!(
-    birth_year: 0,
-    birth_month: 0,
-    birth_day: 0
+    name: Faker::Name.first_name
   )
 end

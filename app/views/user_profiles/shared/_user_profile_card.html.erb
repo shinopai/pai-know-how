@@ -13,7 +13,7 @@
   </figure>
   <ul class="user-profile-card__list">
     <li class="birth">
-      <% if @user_profile.birth_year == 0 %>
+      <% if @user_profile.birth_registered_at.nil? %>
       未登録
       <% else %>
       <%= @user_profile.birth_year %>-<%= @user_profile.birth_month %>-<%= @user_profile.birth_day %>
@@ -23,11 +23,7 @@
       <%= @user_profile.sex %>
     </li>
     <li class="tel">
-      <% if @user_profile.tel == '0000000000' %>
-      未登録
-      <% else %>
       <%= @user_profile.tel %>
-      <% end %>
     </li>
     <li class="email">
       <%= @user.email %>
