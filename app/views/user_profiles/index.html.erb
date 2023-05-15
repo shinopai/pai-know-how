@@ -39,6 +39,9 @@
               <p class="date">
                 <%= knowhow.user.user_profile.name %>さんが<%= time_ago_in_words(knowhow.created_at) %>前に作成
               </p>
+              <figure class="ico">
+                <%= image_tag 'ico_bookmark.webp', title: 'ブックマークする' %>
+              </figure>
             </div>
           </div>
           <% end %>

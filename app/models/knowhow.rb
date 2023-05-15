@@ -2,6 +2,8 @@ class Knowhow < ApplicationRecord
   # relation
   belongs_to :user
   belongs_to :category
+  has_many :users
+  has_many :bookmark_users, through: :bookmarks
 
   # validation
   with_options presence: true do

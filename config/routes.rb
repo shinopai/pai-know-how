@@ -43,4 +43,7 @@ Rails.application.routes.draw do
 
   # フォローを外す
   post '/unfollow', to: 'follows/delete/index#delete', as: :follows_delete
+
+  # 投稿をブックマーク
+  post '/bookmark', to: 'bookmarks/create/index#submit', as: :bookmarks_submit
 end

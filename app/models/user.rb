@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # relation
+  has_many :bookmarks
+  has_many :bookmark_knowhows, through: :bookmarks
   has_many :knowhows, dependent: :destroy
   has_many :drafts, dependent: :destroy
   has_many :follows, dependent: :destroy
