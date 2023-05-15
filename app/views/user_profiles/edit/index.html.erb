@@ -5,7 +5,10 @@
 <main class="user-main">
   <div class="wrap">
     <div class="user-form__wrap">
-      <%= form_with model: @user_profile, url: user_profiles_edit_submit_path(@user), class: 'user-form' do |profile| %>
+      <%= form_with model: @user_profile, url: user_profiles_edit_submit_path(@user),html: { method: :patch, multipart: true, class: 'user-form' } do |profile| %>
+
+      <!-- エラーメッセージ -->
+      <%= render 'shared/error_messages', model: @user_profile %>
 
       <div class="user-form__item">
         <%= profile.label :name, '名前', class: 'user-form__label' %><br />

@@ -4,6 +4,12 @@ ja:
       knowhow:
         title: 題名
         content: 内容
+      user_profile:
+        name: 名前
+        birth_year: 年
+        birth_month: 月
+        birth_day: 日
+        sex: 性別
     errors:
       models:
         user:

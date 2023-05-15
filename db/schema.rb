@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_051129) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_15_012223) do
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -48,14 +48,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_051129) do
   end
 
   create_table "user_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", default: "ユーザー"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
+    t.string "name", default: "user"
+    t.integer "birth_year", default: 1900
+    t.integer "birth_month", default: 1
+    t.integer "birth_day", default: 1
     t.string "profile_image", default: "img_user.webp"
     t.integer "sex", default: 0
     t.string "tel", default: "0000000000"
     t.bigint "user_id", null: false
+    t.datetime "birth_registered_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id"

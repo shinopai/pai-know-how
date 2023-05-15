@@ -21,7 +21,9 @@ UserProfile.count.times do |i|
   id = i + 1
 
   user_profile = UserProfile.where(user_id: id).first
-  user_profile.name = Faker::Name.first_name
-
-  user_profile.save
+  user_profile.update!(
+    birth_year: 0,
+    birth_month: 0,
+    birth_day: 0
+  )
 end
