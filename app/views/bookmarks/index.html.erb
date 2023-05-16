@@ -1,0 +1,48 @@
+<!-- header -->
+<%= render 'user_profiles/shared/header' %>
+
+<!-- main -->
+<main class="user-main">
+  <div class="wrap">
+    <div class="user-profile__wrap flex">
+      <!-- ユーザープロフィールカード -->
+      <%= render 'user_profiles/shared/user_profile_card', { user: @user, user_profile: @user_profile } %>
+
+      <div class="user-profile-knowhows">
+        <h2 class="user-profile-knowhows__heading">ブックマークリスト</h2>
+
+        <% if @bookmarks.any? %>
+        <div class="user-profile-knowhows__list">
+          <% @bookmarks.each do |knowhow| %>
+          <div class="user-profile-knowhows-card flex">
+            <figure class="user-profile-knowhows-card__img">
+              <% if @user_profile.profile_image? %>
+              <%= image_tag @user_profile.profile_image.url %>
+              <% else %>
+              <%= image_tag 'img_user.webp' %>
+              <% end %>
+            </figure>
+            <div class="user-profile-knowhows-card__detail flex">
+              <span class="category <%= set_class_name(knowhow.category.id) %>">
+                <%= knowhow.category.name %>
+              </span>
+              <h3 class="title"><%= knowhow.title %></h3>
+              <p class="content"><%= knowhow.content %></p>
+              <p class="date">
+                <%= knowhow.user.user_profile.name %>さんが<%= time_ago_in_words(knowhow.created_at) %>前に作成
+              </p>
+            </div>
+          </div>
+          <% end %>
+          <%= paginate @bookmarks %>
+        </div>
+        <% else %>
+        <p class="user-profile-knowhows__txt">まだ投稿したノウハウはありません。</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- footer -->
+<%= render 'shared/footer' %>

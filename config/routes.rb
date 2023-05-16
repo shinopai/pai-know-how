@@ -49,4 +49,7 @@ Rails.application.routes.draw do
 
   # ブックマークを外す
   delete '/remove_bookmark', to: 'bookmarks/delete/index#delete', as: :bookmarks_delete
+
+  # ブックマークリスト
+  get '/bookmarks', to: 'bookmarks/index#index', as: :bookmarks
 end
