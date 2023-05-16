@@ -33,4 +33,20 @@ module UserHelper
   def output_days_array
     (1..31).to_a
   end
+
+  def is_bookmarked(user_id, knowhow_id)
+    user = User.find(user_id)
+
+    if user.bookmark_knowhows[0].nil?
+      return true
+    end
+
+    id = user.bookmark_knowhows[0].id
+
+    unless id == knowhow_id
+      return true
+    else
+      return false
+    end
+  end
 end

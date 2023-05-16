@@ -3,7 +3,7 @@ class Knowhow < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :users
-  has_many :bookmark_users, through: :bookmarks
+  has_many :bookmark_users, through: :bookmarks, source: :user
 
   # validation
   with_options presence: true do

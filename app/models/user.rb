@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   # relation
   has_many :bookmarks
-  has_many :bookmark_knowhows, through: :bookmarks
+  has_many :bookmark_knowhows, through: :bookmarks, source: :knowhow
   has_many :knowhows, dependent: :destroy
   has_many :drafts, dependent: :destroy
   has_many :follows, dependent: :destroy

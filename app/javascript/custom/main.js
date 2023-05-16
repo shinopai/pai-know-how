@@ -11,4 +11,9 @@ $(function(){
   $('.user-header__link.user').click(function(){
     $('.user-header-menu').toggleClass('inactive');
   })
+
+  // ブックマークフォーム
+  $('figure.ico').click(function(){
+    $('#bookmarkForm' + $(this).data('id')).submit();
+  })
 })

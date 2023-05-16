@@ -39,9 +39,23 @@
               <p class="date">
                 <%= knowhow.user.user_profile.name %>さんが<%= time_ago_in_words(knowhow.created_at) %>前に作成
               </p>
-              <figure class="ico">
+              <% if is_bookmarked(@user.id, knowhow.id) %>
+              <figure class="ico" data-id="<%= knowhow.id %>">
                 <%= image_tag 'ico_bookmark.webp', title: 'ブックマークする' %>
               </figure>
+              <%= form_tag(bookmarks_submit_path, method: :post, id: "bookmarkForm#{knowhow.id}") do %>
+              <%= hidden_field_tag :user_id, @user.id %>
+              <%= hidden_field_tag :knowhow_id, knowhow.id %>
+              <% end %>
+              <% else %>
+              <figure class="ico" data-id="<%= knowhow.id %>">
+                <%= image_tag 'ico_bookmark_orange.webp', title: 'ブックマークを外す' %>
+              </figure>
+              <%= form_tag(bookmarks_delete_path, method: :delete, id: "bookmarkForm#{knowhow.id}") do %>
+              <%= hidden_field_tag :user_id, @user.id %>
+              <%= hidden_field_tag :knowhow_id, knowhow.id %>
+              <% end %>
+              <% end %>
             </div>
           </div>
           <% end %>

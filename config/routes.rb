@@ -46,4 +46,7 @@ Rails.application.routes.draw do
 
   # 投稿をブックマーク
   post '/bookmark', to: 'bookmarks/create/index#submit', as: :bookmarks_submit
+
+  # ブックマークを外す
+  delete '/remove_bookmark', to: 'bookmarks/delete/index#delete', as: :bookmarks_delete
 end
